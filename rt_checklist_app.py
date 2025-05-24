@@ -23,6 +23,9 @@ for i in range(1, 4):
 st.header("2️⃣ X-Ray Equipment")
 
 xray_type = st.radio("Select X-Ray Setup", ["Single Wall (Crawler)", "Double Wall"])
+crawler = {}
+double_wall = {}
+kv_type = ""
 
 if xray_type == "Single Wall (Crawler)":
     st.subheader("🧰 Crawler Equipment Checklist")
