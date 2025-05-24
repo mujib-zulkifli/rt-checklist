@@ -47,6 +47,32 @@ elif xray_type == "Double Wall":
         "Cable": st.checkbox("Cable")
     }
 
+# -------------------- Section 2.5: Complimentary / Auxiliary Equipment --------------------
+# -------------------- Section 2.5: Complimentary / Auxiliary Equipment --------------------
+st.header("2️⃣➕ Complimentary / Auxiliary Equipment")
+
+st.markdown("### 🔩 General Tools")
+aux_items = {
+    "Rachet": st.checkbox("Rachet"),
+    "Belting Box": st.checkbox("Belting Box"),
+    "Walkie Talkie (1 pair)": st.checkbox("Walkie Talkie (1 pair)"),
+    "Ident Box": st.checkbox("Ident Box"),
+    "Tool Box": st.checkbox("Tool Box"),
+    "Fabric Scrap (Kain Perca)": st.checkbox("Fabric Scrap (Kain Perca)"),
+    "Masking Tape": st.checkbox("Masking Tape"),
+    "Cloth Tape": st.checkbox("Cloth Tape")
+}
+
+st.markdown("### 🔌 Electric Generator (Check Fuel Level)")
+generator_fuel = st.radio("Electric Generator Fuel Level", ["Full", "Enough", "Empty"])
+
+st.markdown("### 💡 Personal Headlight")
+headlight = {
+    "Brought": st.checkbox("Individual Headlight"),
+    "Charged": st.checkbox("Charged"),
+    "Not Charged": st.checkbox("Not Charged")
+}
+
 # Section 3: Film Quantity
 st.header("3️⃣ Film Quantity Used")
 
@@ -135,6 +161,22 @@ if st.button("✅ Submit Checklist"):
             if v:
                 st.write(f"- {k}")
 
+    
+    st.markdown("### 🧰 Auxiliary Equipment")
+    for k, v in aux_items.items():
+        if v:
+            st.write(f"- {k}")
+    st.write(f"- Electric Generator Fuel Level: {generator_fuel}")
+    if headlight["Brought"]:
+        st.write("- Individual Headlight")
+        if headlight["Charged"]:
+            st.write("   - Charged")
+        elif headlight["Not Charged"]:
+            st.write("   - Not Charged")
+
+
+
+
     st.markdown("### 🎥 Film Usage")
     st.write("**SWSI:**")
     for k, v in swsi_film.items():
@@ -173,3 +215,5 @@ if st.button("✅ Submit Checklist"):
     for item, checked in company_legal.items():
         if checked:
             st.write(f"- {item}")
+            
+Added Complimentary/Auxiliary Equipment Section
